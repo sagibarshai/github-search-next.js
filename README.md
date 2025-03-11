@@ -1,5 +1,5 @@
 **GitHub Repository Explorer**
-A simple app to search and explore GitHub repositories.
+An app to search and explore GitHub repositories.
 
 How to Run
 Clone the repo and install dependencies:
