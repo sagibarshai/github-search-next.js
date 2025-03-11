@@ -1,11 +1,17 @@
 **GitHub Repository Explorer**
 An app to search and explore GitHub repositories.
 
-How to Run
+How to Run:
+
+
 Clone the repo and install dependencies:
+
+
 npm install
 
 **RUN**
+
+
 npm run dev
 
 
