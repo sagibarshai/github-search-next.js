@@ -1,0 +1,18 @@
+.primary-button {
+    width: 200px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer; 
+    border-radius: 24px;
+}
+
+.primary-button:disabled {
+    opacity: 0.7;
+    cursor: default;
+}

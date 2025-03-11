@@ -1,0 +1,51 @@
+.github-repo-card-wrapper {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: rgb(216, 216, 216);
+    border-radius: 24px;
+    padding: 24px 16px 16px 16px;
+    cursor: pointer;
+  
+} 
+
+.github-repo-content {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: center;
+
+}
+
+.github-repo-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    max-width: 80%;
+
+}
+.github-repo-card-description {
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 80%;
+}
+.github-repo-card-footer-row {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.github-repo-card-span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.ellipsis {
+    white-space: nowrap;  
+    overflow: hidden;     
+    text-overflow: ellipsis;
+}
