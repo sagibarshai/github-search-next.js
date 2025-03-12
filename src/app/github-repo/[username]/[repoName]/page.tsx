@@ -8,7 +8,24 @@ interface Props {
   };
 }
 
-const fetchRepoDetails = async (username: string, repoName: string) => {
+export interface RepoDetails {
+  name: string;
+  description: string | null;
+  language: string | null;
+  stargazers_count: number;
+  updated_at: string;
+  html_url: string;
+}
+
+interface Contributor {
+  id: number;
+  login: string;
+  avatar_url: string;
+  html_url: string;
+  contributions: number;
+}
+
+const fetchRepoDetails = async (username: string, repoName: string): Promise<RepoDetails | null> => {
   const res = await fetch(`https://api.github.com/repos/${username}/${repoName}`, {
     next: { revalidate: 3600 }, // Cache for 1 hour
   });
@@ -17,7 +34,7 @@ const fetchRepoDetails = async (username: string, repoName: string) => {
   return res.json();
 };
 
-const fetchTopContributors = async (username: string, repoName: string) => {
+const fetchTopContributors = async (username: string, repoName: string): Promise<Contributor[]> => {
   const res = await fetch(`https://api.github.com/repos/${username}/${repoName}/contributors?per_page=5`, { next: { revalidate: 86400 } });
 
   if (!res.ok) return [];
@@ -54,7 +71,7 @@ const GithubRepoPage = async ({ params }: Props) => {
         <h2>Top Contributors</h2>
         {contributors.length > 0 ? (
           <ul className="contributors-list">
-            {contributors.map((contributor: any) => (
+            {contributors.map((contributor) => (
               <li key={contributor.id} className="contributor-item">
                 <img src={contributor.avatar_url} alt={contributor.login} className="contributor-avatar" />
                 <a href={contributor.html_url} target="_blank" rel="noopener noreferrer" className="contributor-name">
